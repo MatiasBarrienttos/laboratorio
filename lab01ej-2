@@ -1,0 +1,9 @@
+Algoritmo Presentarse_A_Ti_Mismo
+    Definir nombre, edad como cadena
+    Escribir "introduce tu nombre"
+    Leer nombre
+    Escribir "introduce tu edad"
+    Leer edad
+    Escribir "Tu nombre es ", nombre
+    Escribir "tu edad es ", edad
+FinAlgoritmo
