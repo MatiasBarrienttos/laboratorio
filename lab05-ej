@@ -1,0 +1,100 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char opcion;
+    double peso;
+    double tarifabase;
+    double pesoextra;
+    double costoTotal;
+
+    do {
+        cout << "\n=========================================\n";
+        cout << "SISTEMA DE ENCOMIENDAS - BOLIVIA\n";
+        cout << "=========================================\n";
+        cout << "[L] La Paz / El Alto\n";
+        cout << "[C] Cochabamba\n";
+        cout << "[S] Santa Cruz\n";
+        cout << "[X] Salir del sistema\n";
+        cout << "-----------------------------------------\n";
+        cout << "Seleccione una opcion de destino: ";
+        cin >> opcion;
+
+        switch (opcion) {
+            case 'L':
+            case 'l':
+                tarifabase = 7.00;
+                pesoextra = 3.00;
+                cout << "\n--- DESTINO: LA PAZ / EL ALTO ---\n" <<endl;
+                cout << "Ingrese el peso de la encomienda (Kg): " <<endl;
+                cin >> peso;
+
+                if (peso <= 0) {
+                    cout << "[ERROR] El peso debe ser mayor a 0 Kg.\n" <<endl;
+                    break;
+                }
+
+                if (peso > 2.00) {
+                    costoTotal = tarifabase + (peso - 2.00) * pesoextra;
+                } else {
+                    costoTotal = tarifabase;
+                }
+                cout << "Costo total a pagar: Bs " << costoTotal << "\n" <<endl;
+                break;
+
+            case 'C':
+            case 'c':
+                tarifabase = 5.00;
+                pesoextra = 2.00;
+                cout << "\n--- DESTINO: COCHABAMBA ---\n" <<endl;
+                cout << "Ingrese el peso de la encomienda (Kg): " <<endl;
+                cin >> peso;
+
+                if (peso <= 0) {
+                    cout << "[ERROR] El peso debe ser mayor a 0 Kg.\n" <<endl;
+                    break;
+                }
+
+                if (peso > 2.00) {
+                    costoTotal = tarifabase + (peso - 2.00) * pesoextra;
+                } else {
+                    costoTotal = tarifabase;
+                }
+                cout << "Costo total a pagar: Bs " << costoTotal << "\n" <<endl;
+                break;
+
+            case 'S':
+            case 's':
+                tarifabase = 8.00;
+                pesoextra = 4.00;
+                cout << "\n--- DESTINO: SANTA CRUZ ---\n";
+                cout << "Ingrese el peso de la encomienda (Kg): " <<endl;
+                cin >> peso;
+
+                if (peso <= 0) {
+                    cout << "[ERROR] El peso debe ser mayor a 0 Kg.\n"<<endl;
+                    break;
+                }
+
+                if (peso > 2.00) {
+                    costoTotal = tarifabase + (peso - 2.00) * pesoextra;
+                } else {
+                    costoTotal = tarifabase;
+                }
+                cout << "Costo total a pagar: Bs " << costoTotal << "\n"<<endl;
+                break;
+
+            case 'X':
+            case 'x':
+                cout << "\nGracias por usar el sistema.\n"<<endl;
+                break;
+
+            default:
+                cout << "\n[ERROR] Opcion no valida. Intente de nuevo.\n" <<endl;
+                break;
+        }
+
+    } while (opcion != 'X' && opcion != 'x');
+
+    return 0;
+}
