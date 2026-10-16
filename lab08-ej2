@@ -1,0 +1,74 @@
+#include <iostream>
+
+using namespace std;
+
+int leerNumero();
+int calcularSumaHastaN(int n);
+int contarDigitos(int n);
+int sumarDigitos(int n);
+void mostrarResultados(int sumaHastaN, int cantidadDigitos, int sumaDigitos);
+
+int main() {
+
+    int numero = leerNumero();
+
+    int sumaTotal = calcularSumaHastaN(numero);
+    int totalDigitos = contarDigitos(numero);
+    int sumaDeDigitos = sumarDigitos(numero);
+
+    mostrarResultados(sumaTotal, totalDigitos, sumaDeDigitos);
+
+    return 0;
+}
+
+int leerNumero() {
+    int n;
+    do {
+        cout << "Ingrese un numero entero positivo: ";
+        cin >> n;
+        if (n <= 0) {
+            cout << "El numero debe ser mayor a 0. Intente de nuevo.\n";
+        }
+    } while (n <= 0);
+    return n;
+}
+
+
+int calcularSumaHastaN(int n) {
+    int suma = 0;
+    for (int i = 1; i <= n; i++) {
+        suma += i;
+    }
+    return suma;
+}
+
+int contarDigitos(int n) {
+    int contador = 0;
+    int temp = n;
+    while (temp > 0) {
+        contador++;
+        temp /= 10;
+    }
+    return contador;
+}
+
+
+int sumarDigitos(int n) {
+    int suma = 0;
+    int temp = n;
+    do {
+        suma += (temp % 10);
+        temp /= 10;
+    } while (temp > 0);
+    return suma;
+}
+
+void mostrarResultados(int sumaHastaN, int cantidadDigitos, int sumaDigitos) {
+    cout << "\n=================================" << endl;
+    cout << "         RESULTADOS              " << endl;
+    cout << "=================================" << endl;
+    cout << "Suma de 1 a N (for)        : " << sumaHastaN << endl;
+    cout << "Cantidad de digitos (while): " << cantidadDigitos << endl;
+    cout << "Suma de digitos (do-while) : " << sumaDigitos << endl;
+    cout << "=================================" << endl;
+}
