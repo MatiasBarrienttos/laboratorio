@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int BuscarSubCadena(string a, string b) {
+    size_t pos = b.find(a);
+    if (pos != string::npos) {
+        return static_cast<int>(pos);
+    }
+    return -1;
+}
+
+void registrar(string &a, string &b);
+void mostrar(string a, string b);
+
+int main (){
+    string a, b;
+    registrar (a, b);
+    mostrar (a, b);
+    return 0;
+}
+
+void registrar (string &a, string &b) {
+    cout << "Ingrese la subcadena a: ";
+    getline(cin, a);
+    cout << "Ingrese la cadena b: ";
+    getline(cin, b);
+}
+
+void mostrar(string a, string b) {
+    int resultado = BuscarSubCadena(a, b);
+    cout << "Salida esperada: " << resultado << endl;
+}
