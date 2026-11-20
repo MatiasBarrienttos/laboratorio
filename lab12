@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int BuscarSubCadena(string a, string b);
+
+int main() {
+    string subcadena, cadena;
+    int resultado;
+
+    cout << "Ingrese la cadena principal (b): ";
+    getline(cin, cadena);
+    cout << "Ingrese la subcadena a buscar (a): ";
+    getline(cin, subcadena);
+
+    resultado = BuscarSubCadena(subcadena, cadena);
+    cout << "Salida esperada: " << resultado << endl;
+
+    return 0;
+}
+
+int BuscarSubCadena(string a, string b) {
+    int pos = b.find(a);
+    int largoA = a.length();
+    int largoB = b.length();
+
+    if (pos >= 0 && pos < largoB) {
+        if (b.substr(pos, largoA) == a) {
+            return pos;
+        }
+    }
+
+    return -1;
+}
